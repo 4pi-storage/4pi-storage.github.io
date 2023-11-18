@@ -1,2 +1,2 @@
-# 4pi-storage.github.io
-これは、4pi-storageのHPです。
+# HP.github.io
+ここは、4pi-storageのHPです。
