@@ -20,10 +20,47 @@ const includer = (_fileName, _id) => {
     });
 };
 
+const includerLoader = (_fileName, _id) => {
+  /* fetch APIを使用してファイルを非同期で取得 */
+  fetch("include/" + _fileName) /*ファイルパスからファイルを取得  */
+    .then(_response => { /* レスポンスがresponseへ格納 */
+      /* レスポンスが正常かどうかをチェック */
+      if (!_response.ok) {
+        throw new Error('Network response was not ok'); /* ダメならエラーを投げる */
+      }
+      return _response.text(); /* レスポンスをテキストとして取得 */
+    })
+    .then(_html => { /* 取得したテキストデータを_htmlに格納 */
+      // ファイルの内容を指定された要素に挿入
+      const _contents = document.querySelector("#" + _id); /* 挿入する場所を探す */
+      _contents.insertAdjacentHTML("afterbegin", _html); /* 一番最初に挿入 */
+      MathJax.typesetPromise(); // MathJaxを再処理
+      /* Loading画面の操作 */
+      window.onload = function(){
+        const _time = 1500;/* 消すまでの時間を設定 */
+        /* loaderにload完了のクラスを付与 */
+        const _loader = document.querySelector('.loader');/* loaderを探してくる */
+        _loader.classList.add("loaded");/* laod完了のクラス(laoded)を追加 */
+        /* timeの時間だけ待つ関数 */
+        setTimeout(()=>{
+          /* 記事を表示する。 */
+          const _content = document.querySelector('.footerFixed');/* 記事のクラスを探してくる */
+          _content.style.display = 'block'; /* 記事を表示 */
+          /* loading画面を消す */
+          const _cover = document.querySelector('#cover');/* loadingのクラスを探してくる */
+          _cover.style.display = 'none';/* 消す。(見えなくするわけではなく消す。) */
+        },_time)
+      }
+    })
+    .catch(_error => { /* もしエラーがあるならerrorに格納 */
+      console.error('There has been a problem with your fetch operation:', _error); /* エラーの内容をconsoleへ出力 */
+    });
+};
+
 /* どのページにも必要なファイルを挿入 */
 includer("head.html","head"); /* head */
 includer("footer.html","footer") /* フッター */
-includer("loader.html","cover"); /* loading画面 */
+includerLoader("loader.html","cover"); /* loading画面 */
 
 
 /* ナビゲーションバーに関しての操作 */
@@ -184,21 +221,10 @@ const includerSide = (_file_name, _id) => {
 
 includerSide("side.html","side") /* サイドバーを操作と一緒に挿入 */
 
-/* Loading画面の操作 */
-window.onload = function(){
-  const _time = 1500;/* 消すまでの時間を設定 */
-  /* loaderにload完了のクラスを付与 */
-  const _loader = document.querySelector('.loader');/* loaderを探してくる */
-  console.log(_loader);
-  _loader.classList.add("loaded");/* laod完了のクラス(laoded)を追加 */
-  /* timeの時間だけ待つ関数 */
-  setTimeout(()=>{
-    /* 記事を表示する。 */
-    const _content = document.querySelector('.footerFixed');/* 記事のクラスを探してくる */
-    _content.style.display = 'block'; /* 記事を表示 */
-    /* loading画面を消す */
-    const _cover = document.querySelector('#cover');/* loadingのクラスを探してくる */
-    _cover.style.display = 'none';/* 消す。(見えなくするわけではなく消す。) */
-  },_time)
+async function asyncFunction() {
+  await new Promise(resolve => setTimeout(resolve, 3000));
+  // Promiseが解決される（ここでは3秒後）まで待つ
 }
+
+
 
