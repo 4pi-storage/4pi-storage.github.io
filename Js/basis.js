@@ -34,6 +34,8 @@ const includerLoader = (_fileName, _id) => {
       // ファイルの内容を指定された要素に挿入
       const _contents = document.querySelector("#" + _id); /* 挿入する場所を探す */
       _contents.insertAdjacentHTML("afterbegin", _html); /* 一番最初に挿入 */
+      const _loader = document.querySelector('.loader');/* loaderを探してくる */
+      console.log(_loader);
       MathJax.typesetPromise(); // MathJaxを再処理
       /* Loading画面の操作 */
       window.onload = function(){
