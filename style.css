@@ -1,0 +1,563 @@
+/* Loading画面 */
+.footerFixed{
+  position: absolute;
+  color: black;
+  transition: all 0.3s;
+  transition-delay: 0.3s;
+}
+
+.loader{
+  height: 40vh;
+  width: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.loader span{
+  position: absolute;
+  border: 2px solid #25c85c;
+  width: 100%;
+  height: 100%;
+  animation: animate 5s linear infinite;
+}
+
+.loader span:nth-child(1){
+  border-radius: 83% 17% 17% 83% / 50% 14% 86% 50% ;
+}
+
+.loader span:nth-child(2){
+  animation-direction: reverse;
+  border-radius: 30% 70% 17% 83% / 79% 14% 86% 21% ;
+}
+
+.loader span:nth-child(3){
+  animation-delay: 0.4s;
+  border-radius: 40% 60% 51% 49% / 98% 14% 86% 2% ;
+}
+
+@keyframes animate{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+}
+
+.loader h2{
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.loaded{
+  opacity: 0;
+  transition: all 1.2s;
+}
+
+/* 画面全体 */
+body{
+  background-color: rgb(240, 252, 236);/* ←背景色を指定*/
+  background-size: cover;/* ←背景色を全体へ*/
+}
+
+.footerFixed{
+  min-height: 100vh; /* ←全コンテンツの高さの最小値＝ブラウザの高さに指定 */
+  position: relative;/* ←相対位置つまり、全コンテンツの中で子供の位置が決まる。入れておかないと画面の大きさに依存してしまう。*/
+  padding-bottom: 20vh; /* ←フッターにかからないようにコンテンツの下限を決めている。下のfooterのheightよりも大きい値なら被らない。 */
+  box-sizing: border-box;/* ←ヘッダーやフッターを含むすべての要素の高さ＝min-height:100vhになるように固定 */
+}
+
+/* header */
+.header{
+	height: 10vh; /* ←高さを指定*/
+  background-image:url(head.jpg); /* ←ヘッダーを覆うように画像を挿入している。 */
+}
+
+/* navbar */
+.navbar{
+  background-color: #547e4f; /* ←ナビバーの背景色を指定。*/
+  margin-bottom: 3vh; /* ナビバーの下にmariginを指定 */
+  display: flex; /* 子要素の位置を自由に指定 */
+}
+
+.navbar img{
+  width: 8vmin; /* 横幅を画面の小さい方の8%にした。 */
+  height: 8vmin; /* 縦幅を画面の小さい方の8%にした。 */
+  margin-left: 2vmin; /* 画像の左に画面の小さい方の2%のmarginを入れた。 */
+  cursor: pointer; /* カーソルを置くとクリックできるように設定した。 */
+}
+
+.navbar ul {
+  display: flex; /* Flexboxを使用してアイテムを横に並べます */
+  margin: 0 auto;        /* 左右のマージンを自動に設定して中央揃えにします */
+  list-style: none;      /* リストのスタイル（点）を無効にします */
+  padding: 0;            /* パディングをリセットします */
+  text-align: center; /* テキストを中央揃えにします。 */
+}
+
+.navbar a{
+  text-decoration: none; /* 下線を消す */
+  color: white; /* 文字の色を白に */
+}
+
+.navbar li {
+  margin-left: 10px; /* 各リストアイテムの間にスペースを追加 */
+}
+
+.nav-category{
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.nav-category-title {
+  position: relative; /* 疑似要素の位置決めの基準点 */
+  color: white; /* 文字の色を白に */
+}
+
+.nav-category-title:after {
+  content: ''; /* 疑似要素には内容が必要ないため空に */
+  position: absolute; /* 疑似要素の位置を絶対位置に */
+  top: 10px; /* ドロップダウンの上部からの位置調整 */
+  right: -10px; /* ドロップダウンの右側に配置 */
+  border-left: 5px solid transparent; /* 左側の境界線（透明） */
+  border-right: 5px solid transparent; /* 右側の境界線（透明） */
+  border-top: 5px solid white; /* 下向き三角形の色 */
+}
+
+.nav-dropdown {
+  display: none;
+  flex-direction: column; /* 子要素を縦方向に並べる */
+  position: absolute; /* メニューを絶対位置で配置 */
+  background-color: #ffffff; /* メニューの背景色 */
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* 影の効果 */
+  z-index: 1; /* 他の要素より上に表示 */
+  border-radius: 5px;
+  align-items: center;
+}
+
+.nav-dropdown-item{
+  width: 100%;
+}
+.nav-dropdown-item:hover {
+  background-color: #e5fce3a0;
+  cursor: pointer;
+}
+
+
+
+/* footer */
+.footer{
+  position: absolute;/* ←親要素つまり、footerFiexedの中での絶対位置 */
+  bottom: 0;/* ←一番下に固定*/
+  display: flex;/* ←子要素の位置を自由にした。*/
+  align-items: center;/* ←子要素の位置を縦方向で真ん中にした。*/
+  justify-content: center;/* ←子要素の位置を横方向で真ん中にした。*/
+  height: 10vh; /* ←高さを指定*/
+  width: 100%;/* ←横幅を指定*/
+  background: #000000;/* ←フッターの背景色を指定。*/
+}
+
+.footer div{
+  color: #fff; /*←文字の色を指定*/
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  cursor: pointer;
+}
+
+.footer div img{
+  width: 5vh;
+  height: 50%;
+  border-radius: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* ホーム画面 */
+.homeimg{
+  width: 100%;
+  height: 70vmin;
+}
+
+
+/* 記事全体(サイドバー含む)のスタイル */
+.article{
+  margin-left: 2em; /*←左にを空白を追加*/
+  margin-right: 2em; /*←右にを空白を追加*/
+  display: flex; /* ←要素の位置を自由に調整 */
+  justify-content: center; /* ←横方向の中央寄せ */
+}
+
+/* メイン記事のスタイル */
+.article > div:nth-child(1) {
+  flex-grow: 0; /* 拡大可能なスペースを持つ */
+  background-color: #ffffff; /* 背景色を指定*/
+  padding: 20px; /* 内部余白（お好みで調整） */
+  position: relative;
+}
+
+.title {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  background: #3d6a38;/*背景色*/
+}
+
+.title h1 {
+  margin: 0; 
+  padding: 0;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.toc-article {
+  margin-bottom: 30px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+}
+
+.toc-article div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 10px 0;
+  background-color: #70a96a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.toc-article div::before {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 5px;
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22M3.8%2017.2h-3c-.5%200-.8.4-.8.8v3c0%20.4.3.8.8.8h3c.4%200%20.8-.3.8-.8v-3c-.1-.4-.4-.8-.8-.8zm0-15h-3c-.5%200-.8.4-.8.8v3c0%20.4.3.8.8.8h3c.4%200%20.8-.3.8-.8V3c-.1-.4-.4-.8-.8-.8zm0%207.6h-3c-.5%200-.8.3-.8.7v3c0%20.4.3.8.8.8h3c.4%200%20.8-.3.8-.8v-3c-.1-.4-.4-.7-.8-.7zM23.2%2018h-15c-.4%200-.8.3-.8.8v1.5c0%20.4.3.8.8.8h15c.4%200%20.8-.3.8-.8v-1.5c0-.5-.3-.8-.8-.8zm0-15h-15c-.4%200-.7.3-.7.8v1.5c0%20.4.3.7.7.7h15c.5%200%20.8-.3.8-.8V3.8c0-.5-.3-.8-.8-.8zm0%207.5h-15c-.4%200-.8.3-.8.8v1.5c0%20.4.3.8.8.8h15c.4%200%20.8-.3.8-.8v-1.5c0-.5-.3-.8-.8-.8z%22%2F%3E%3C%2Fsvg%3E');
+  content: '';
+}
+
+.toc-article ol {
+  list-style-type: decimal;
+  margin: 0;
+  overflow: hidden;
+}
+
+.toc-article > ol {
+  padding: 1em 1em 1em 3em;
+}
+
+.toc-article ol ol {
+  margin-top: 5px;
+  padding-left: 1.1em;
+}
+
+.toc-article li {
+  padding: 5px 0;
+  font-weight: 600;
+}
+
+.toc-article ol ol li {
+  font-weight: 500;
+  font-size: .9em;
+}
+
+.toc-article a {
+  color: #333;
+  text-decoration: none;
+}
+
+.toc-article a:hover {
+  color: #547e4f;
+  text-decoration: none;
+}
+
+.ex-box {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  background: #FFF;
+  border: solid 3px #70a96a;/*線*/
+  border-radius: 10px;/*角の丸み*/
+}
+.ex-box p {
+  margin: 0; 
+  padding: 0;
+}
+
+.testimg1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.testimg{
+  width: 30vmin;
+  height: 30vmin;
+  border: 1px solid black;
+}
+
+/* サイドバーのスタイル */
+.article > div:nth-child(2) {
+  width: 35%; /* 固定サイズ（お好みで変更） */
+  background-color: lightgray; /* 背景色（お好みで変更） */
+  padding: 20px; /* 内部余白（お好みで調整） */
+  overflow: hidden;
+}
+
+.search {
+  display: flex;
+  width: 100%;
+}
+
+.search input[type=text] {
+  width: 100%;
+  font-size: 20px;
+  padding: 0 6px;
+  color: #474747;
+  border: 2px solid #474747;
+  border-radius: 3px 0 0 3px;
+  outline: none;
+}
+
+.search button[type=submit] {
+  /* padding: 10px 20px; */
+  font-size: 1rem;
+  color: #FFF;
+  background: #474747;
+  border: 2px solid #474747;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+
+
+
+
+.limegreen input[type=text] {
+  border-color: #70a96a;
+}
+
+.limegreen button[type=submit] {
+  border-color: #70a96a;
+  background: #70a96a;
+}
+
+.latest-article {
+  padding: 1em 2em;
+  margin: 2em 0;
+  background: #70a96a;/*背景色*/
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.latest-article span {
+  color: #ffffff;
+}
+
+.spreadsheets--item {
+  list-style: none;
+}
+
+.spreadsheets--name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.spreadsheets--item {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  background: #FFF;
+  border-top: solid 6px #70a96a;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  color: #000;
+}
+
+.spreadsheets--item a{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.spreadsheets--item img{
+  margin-right: 1em;
+  width: 5em;
+  height: 5em;
+}
+
+.spreadsheets--item:hover{
+  background-color: #e5fce3;
+}
+
+.category-title {
+  padding: 1em 2em;
+  margin: 2em 0;
+  background: #70a96a;/*背景色*/
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.category-title span {
+  color: #ffffff;
+}
+
+.category-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-top: solid 1px #778ca3;
+}
+
+.category-table tr:nth-child(n) {
+  background: #ffffff;
+}
+
+.category-table tr:nth-child(n):hover,
+.category-table th:hover {
+  background-color: #e5fce3a0;
+}
+
+.category-table td {
+  padding: 10px;
+  border-bottom: solid 1px #778ca3;
+}
+
+
+.category-table th {
+  padding: 10px;
+  border-bottom: solid 1px #778ca3;
+  background-color: rgb(240, 252, 236);
+}
+
+.list-link {
+  cursor: pointer;
+  position: relative;
+}
+
+.list-link img {
+  width: 10rem;
+  height: 10rem;
+}
+
+/* 記事一覧 */
+.article-list {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-top: solid 3px #70a96a;
+  margin-bottom: 30vh;
+}
+
+.article-list tr:nth-child(n) {
+  background: #ffffff;
+}
+
+.article-list tr:nth-child(n):hover,
+.article-list th:hover {
+  background-color: #e5fce3a0;
+}
+
+.article-list td {
+  padding: 10px;
+  border-bottom: solid 3px #70a96a;
+}
+
+
+/* .article-list th {
+  padding: 10px;
+  border-bottom: solid 1px #778ca3;
+  background-color: rgb(240, 252, 236);
+} */
+
+.table-link {
+  cursor: pointer;
+  position: relative;
+}
+
+.table-link img {
+  width: 20vw;
+  height: 20vw;
+}
+
+.update span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-top: 20vh;
+}
+
+.pagenation{
+  position: absolute;/* ←親要素つまり、footerFiexedの中での絶対位置 */
+  bottom: 0;/* ←一番下に固定*/
+  display: flex;/* ←子要素の位置を自由にした。*/
+  align-items: center;/* ←子要素の位置を縦方向で真ん中にした。*/
+  justify-content: space-between;/* ←子要素の位置を横方向で真ん中にした。*/
+  height: 10vh; /* ←高さを指定*/
+  width: 100%;/* ←横幅を指定*/
+  /* margin-right: 100px; */ /* 左右のマージンを自動に設定して中央揃えにします */
+  width: 80%; /* または他の固定幅 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pagenation button{
+  background-color: #e5fce3a0;
+  border: 2px solid #547e4f;
+}
+
+.pagenation button:focus{
+  border: 2px solid black; /* 緑色の境界線 */
+}
+
+.category-list {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-top: solid 1px #778ca3;
+  margin-bottom: 5vh;
+}
+
+.category-list tr:nth-child(n) {
+  background: #ffffff;
+  border-bottom: solid 1px #778ca3;
+}
+
+.category-list tr:nth-child(n):hover,
+.category-list th:hover {
+  background-color: #e5fce3a0;
+}
+
+.category-list td {
+  padding: 10px;
+  /* border-bottom: solid 1px #778ca3; */
+}
+
+
+.category-list th {
+  padding: 10px;
+  /* border-bottom: solid 1px #778ca3; */
+  /* background-color: rgb(240, 252, 236); */
+}
+
+.list-link {
+  cursor: pointer;
+  position: relative;
+}
+
+.list-link img {
+  width: 10rem;
+  height: 10rem;
+}
