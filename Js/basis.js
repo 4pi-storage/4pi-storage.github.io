@@ -40,6 +40,7 @@ const includerLoader = (_fileName, _id) => {
         const _time = 1500;/* 消すまでの時間を設定 */
         /* loaderにload完了のクラスを付与 */
         const _loader = document.querySelector('.loader');/* loaderを探してくる */
+        console.log(_loader);
         _loader.classList.add("loaded");/* laod完了のクラス(laoded)を追加 */
         /* timeの時間だけ待つ関数 */
         setTimeout(()=>{
