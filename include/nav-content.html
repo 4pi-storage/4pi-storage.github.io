@@ -1,0 +1,24 @@
+<img src="main-icon.png" alt="" onclick="window.location.href='index.html'">
+<ul >
+    <li>
+        <a class="" href="index.html">ホーム</span></a>
+    </li>
+    <li class="">
+        <a class="" href="all-article.html" onclick="sessionStorage.setItem('now', 1);">記事一覧</a>
+    </li>
+    <li id="nav-category" class="nav-category">
+        <div class="nav-category-wrap">
+            <span class="nav-category-title">
+                カテゴリー     
+            </span>
+        </div>
+        <div class="nav-dropdown">
+            <span class="nav-dropdown-item">数学</span>
+            <span class="nav-dropdown-item" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'set');sessionStorage.setItem('now', 1);">集合と位相</span>
+            <span class="nav-dropdown-item" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'lebesgue');sessionStorage.setItem('now', 1);">ルベーグ積分</span>
+            <span class="nav-dropdown-item" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'prob');sessionStorage.setItem('now', 1);">確率論</span>
+            <span class="nav-dropdown-item">物理</span>
+            <span class="nav-dropdown-item" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'quantum');sessionStorage.setItem('now', 1);">量子力学</span>
+        </div>
+    </li>
+</ul>
