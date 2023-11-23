@@ -1,5 +1,10 @@
+let flag1 = false;
+let flag2 = false;
+let flag3 = false;
+let flag4 = false;
+
 /* 別ファイルをincludeする操作 */
-const includer = (_fileName, _id) => {
+async function includer  (_fileName, _id)  {
   /* fetch APIを使用してファイルを非同期で取得 */
   fetch("include/" + _fileName) /*ファイルパスからファイルを取得  */
     .then(_response => { /* レスポンスがresponseへ格納 */
@@ -20,7 +25,7 @@ const includer = (_fileName, _id) => {
     });
 };
 
-const includerLoader = (_fileName, _id) => {
+async function includerll  (_fileName, _id)  {
   /* fetch APIを使用してファイルを非同期で取得 */
   fetch("include/" + _fileName) /*ファイルパスからファイルを取得  */
     .then(_response => { /* レスポンスがresponseへ格納 */
@@ -35,35 +40,31 @@ const includerLoader = (_fileName, _id) => {
       const _contents = document.querySelector("#" + _id); /* 挿入する場所を探す */
       _contents.insertAdjacentHTML("afterbegin", _html); /* 一番最初に挿入 */
       const _loader = document.querySelector('.loader');/* loaderを探してくる */
+      if(_loader){
+        console.log('良いね！')
+      }
       console.log(_loader);
       MathJax.typesetPromise(); // MathJaxを再処理
-      /* Loading画面の操作 */
-      window.onload = function(){
-        const _time = 1500;/* 消すまでの時間を設定 */
-        /* loaderにload完了のクラスを付与 */
-        const _loader = document.querySelector('.loader');/* loaderを探してくる */
-        console.log(_loader);
-        _loader.classList.add("loaded");/* laod完了のクラス(laoded)を追加 */
-        /* timeの時間だけ待つ関数 */
-        setTimeout(()=>{
-          /* 記事を表示する。 */
-          const _content = document.querySelector('.footerFixed');/* 記事のクラスを探してくる */
-          _content.style.display = 'block'; /* 記事を表示 */
-          /* loading画面を消す */
-          const _cover = document.querySelector('#cover');/* loadingのクラスを探してくる */
-          _cover.style.display = 'none';/* 消す。(見えなくするわけではなく消す。) */
-        },_time)
-      }
     })
     .catch(_error => { /* もしエラーがあるならerrorに格納 */
       console.error('There has been a problem with your fetch operation:', _error); /* エラーの内容をconsoleへ出力 */
     });
 };
 
+
 /* どのページにも必要なファイルを挿入 */
-includer("head.html","head"); /* head */
-includer("footer.html","footer") /* フッター */
-includerLoader("loader.html","cover"); /* loading画面 */
+includer("head.html","head").then(()=>{
+  /* flag1 = true; */
+  console.log('flag1完了')
+}) /* head */
+includer("footer.html","footer").then(()=>{
+  /* flag2 = true; */
+  console.log('flag2完了')
+}) /* フッター */
+includerll("loader.html","cover").then(()=>{
+  /* flag3 = true; */
+  console.log('flag3完了')
+}) /* loading画面 */
 
 
 /* ナビゲーションバーに関しての操作 */
@@ -134,7 +135,7 @@ window.addEventListener("resize", checkViewportSize);
 
 
 /* サイドバーに関しての操作 */
-const includerSide = (_file_name, _id) => {
+async function includerSide (_file_name, _id)  {
   const _apiURL = 'https://script.google.com/macros/s/AKfycbwr2_yBunIZqw2theL2eHCCs65-DvJ3QmNEoT0na5gHALdjlq3JE_RuC2ZLlVulLTqlTg/exec';  /* GoogleスプレッドシートのAPIキー */
   // fetch APIを使用してファイルを非同期で取得
   fetch("include/" + _file_name) /*ファイルパスからファイルを取得  */
@@ -222,12 +223,55 @@ const includerSide = (_file_name, _id) => {
   }
 };
 
-includerSide("side.html","side") /* サイドバーを操作と一緒に挿入 */
+includerSide("side.html","side").then(()=>{
+  console.log('終わり')
+}
+);
 
-async function asyncFunction() {
-  await new Promise(resolve => setTimeout(resolve, 3000));
-  // Promiseが解決される（ここでは3秒後）まで待つ
+
+/* サイドバーを操作と一緒に挿入 */
+
+/* 非同期に関数を止める関数 */
+async function sleep(ms) {
+  return  new Promise(resolve => setTimeout(resolve, ms));
 }
 
+const deleteLoader = () =>{
+  const _loader = document.querySelector('.loader');/* loaderを探してくる */
+  _loader.classList.add("loaded");/* laod完了のクラス(laoded)を追加 */
+  setTimeout(()=>{
+    /* 記事を表示する。 */
+    const _content = document.querySelector('.footerFixed');/* 記事のクラスを探してくる */
+    _content.style.display = 'block'; /* 記事を表示 */
+    /* loading画面を消す */
+    const _cover = document.querySelector('#cover');/* loadingのクラスを探してくる */
+    _cover.style.display = 'none';/* 消す。(見えなくするわけではなく消す。) */
+  },1500)
+};
 
 
+async function monitorContent() {
+  while (true) {
+    const _loader = document.querySelector('.loader');/* loaderを探してくる */
+    const _navContent = document.querySelector('.nav-category');
+    const _sideContent = document.querySelector('.spreadsheets');
+    if(_navContent){
+      flag1 = true
+    };
+    if(_sideContent){
+      flag2 = true
+    };
+    if(_loader){
+      flag3 = true
+    };
+    if (flag1 && flag2 && flag3) {
+      break
+    }
+    console.log('まだだよ！');
+    await sleep(10);
+  }
+  console.log('消します！！！！')
+  deleteLoader();
+}
+
+monitorContent();
