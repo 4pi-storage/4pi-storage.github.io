@@ -1,5 +1,5 @@
 /* 全記事一覧を表示させるための関数 */
-async function includerAll(_fileName, _id) {
+async function includerAll(_fileName, _id, _folderName) {
     try {
 
         /* セッションストレージからデータを取得 */
@@ -10,7 +10,7 @@ async function includerAll(_fileName, _id) {
         };
 
         /* htmlファイルを挿入 */
-        const _responseHTML = await fetch("include/" + _fileName); /* ファイルパスからファイルを非同期で取得 */
+        const _responseHTML = await fetch(_folderName + _fileName); /* ファイルパスからファイルを非同期で取得 */
         const _html = await _responseHTML.text(); /* ファイルのテキスト情報を取得 */
         const _contents = document.querySelector("#" + _id); /* 挿入する箇所の要素を取得 */
         _contents.insertAdjacentHTML("afterbegin", _html); /* 指定箇所に挿入 */
@@ -32,7 +32,7 @@ async function includerAll(_fileName, _id) {
             /* データ表示 */
             const _apiUrl = 'https://script.google.com/macros/s/AKfycbwr2_yBunIZqw2theL2eHCCs65-DvJ3QmNEoT0na5gHALdjlq3JE_RuC2ZLlVulLTqlTg/exec';  /* GoogleスプレッドシートのAPIキー */
             const _articleList = _contents.querySelector('.article-list'); /* 要素を入れ込む要素を取得 */
-            const _baseList = _contents.querySelector('.table-link'); /* これから作る要素のベース */
+            const _baseList = _contents.querySelector('.article-list-item'); /* これから作る要素のベース */
             const response = await fetch(_apiUrl); /* apiのURLからデータを取得 */
             const data = await response.json(); /* json形式に変更 */
             const max = 3; /* ページに表示させるMax */
@@ -51,11 +51,11 @@ async function includerAll(_fileName, _id) {
                     // 年、月、日を指定のフォーマットに変換
                     const formattedDate = `${year}/${month}/${day}`;
                     const copy = _baseList.cloneNode(true);
-                    copy.querySelector('.list-title').textContent = entry.title;
+                    copy.querySelector('.arli-item-title').textContent = entry.title;
                     copy.setAttribute('onclick', "window.location.href="+"'"+entry.link+"'");
-                    copy.querySelector('.list-img').src = entry.image;
-                    copy.querySelector('.list-content').textContent = entry.content;
-                    copy.querySelector('.list-update').textContent = formattedDate;
+                    copy.querySelector('.arli-item-img').src = entry.image;
+                    copy.querySelector('.arli-item-content').textContent = entry.content;
+                    copy.querySelector('.arli-item-update').textContent = formattedDate;
                     _articleList.appendChild(copy);
                 }
                 
@@ -110,7 +110,6 @@ async function includerAll(_fileName, _id) {
                     sessionStorage.setItem("now", pageNum);
                     window.location.href = 'all-article.html';
                 };
-                
             };
             _pagenationButton[1].addEventListener('click',first);
             _pagenationButton[3].addEventListener('click',end);
@@ -127,4 +126,4 @@ async function includerAll(_fileName, _id) {
     }
 }
 
-includerAll("all-article-content.html","main-content"); /* 実行 */
+includerAll("all-article-content.html","main-content","include/"); /* 実行 */

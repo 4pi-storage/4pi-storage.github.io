@@ -1,5 +1,5 @@
 /* 検索結果を表示する関数 */
-async function includerResult(_fileName, _id) {
+async function includerResult(_fileName, _id, _folderName) {
     try {
 
         /* セッションストレージからデータを取得 */
@@ -15,7 +15,7 @@ async function includerResult(_fileName, _id) {
         };
 
         /* HTMLファイルを挿入 */
-        const _responseHtml = await fetch("include/" + _fileName); /* ファイルパスからファイルを取得 */
+        const _responseHtml = await fetch(_folderName + _fileName); /* ファイルパスからファイルを取得 */
         const _html = await _responseHtml.text(); /* テキスト情報を取得 */
         const _contents = document.querySelector("#" + _id); /* 挿入する箇所を探す。 */
         _contents.insertAdjacentHTML("afterbegin", _html); /* 指定箇所の最初に挿入 */
@@ -41,7 +41,7 @@ async function includerResult(_fileName, _id) {
 
             /* データ表示 */
             const _apiURL = 'https://script.google.com/macros/s/AKfycbwr2_yBunIZqw2theL2eHCCs65-DvJ3QmNEoT0na5gHALdjlq3JE_RuC2ZLlVulLTqlTg/exec';  /* GoogleスプレッドシートのAPIキー */
-            const _baseList = _contents.querySelector('.table-link'); /* これから作る要素のベース */
+            const _baseList = _contents.querySelector('.article-list-item'); /* これから作る要素のベース */
             const _articleList = _contents.querySelector('.article-list'); /* 要素を入れ込む要素を取得 */
             const _responseData = await fetch(_apiURL); /* apiのURLからデータを取得 */
             const _data = await _responseData.json(); /* json形式に変更 */
@@ -61,11 +61,11 @@ async function includerResult(_fileName, _id) {
                     // 年、月、日を指定のフォーマットに変換
                     const formattedDate = `${year}/${month}/${day}`;
                     const copy = _baseList.cloneNode(true);
-                    copy.querySelector('.list-title').textContent = entry.title;
+                    copy.querySelector('.arli-item-title').textContent = entry.title;
                     copy.setAttribute('onclick', "window.location.href="+"'"+entry.link+"'");
-                    copy.querySelector('.list-img').src = entry.image;
-                    copy.querySelector('.list-content').textContent = entry.content;
-                    copy.querySelector('.list-update').textContent = formattedDate;
+                    copy.querySelector('.arli-item-img').src = entry.image;
+                    copy.querySelector('.arli-item-content').textContent = entry.content;
+                    copy.querySelector('.arli-item-update').textContent = formattedDate;
                     _articleList.appendChild(copy);
                 }
                 
@@ -144,5 +144,5 @@ async function includerResult(_fileName, _id) {
     }
 }
 
-includerResult("serch-result-content.html", "main-content");
+includerResult("serch-result-content.html", "main-content","include/");
 

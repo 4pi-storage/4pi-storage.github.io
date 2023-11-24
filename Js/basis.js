@@ -4,9 +4,9 @@ let flag3 = false;
 let flag4 = false;
 
 /* 別ファイルをincludeする操作 */
-async function includer  (_fileName, _id)  {
+async function includer  (_fileName, _id, _folderName)  {
   /* fetch APIを使用してファイルを非同期で取得 */
-  fetch("include/" + _fileName) /*ファイルパスからファイルを取得  */
+  fetch(_folderName + _fileName) /*ファイルパスからファイルを取得  */
     .then(_response => { /* レスポンスがresponseへ格納 */
       /* レスポンスが正常かどうかをチェック */
       if (!_response.ok) {
@@ -24,53 +24,26 @@ async function includer  (_fileName, _id)  {
       console.error('There has been a problem with your fetch operation:', _error); /* エラーの内容をconsoleへ出力 */
     });
 };
-
-async function includerll  (_fileName, _id)  {
-  /* fetch APIを使用してファイルを非同期で取得 */
-  fetch("include/" + _fileName) /*ファイルパスからファイルを取得  */
-    .then(_response => { /* レスポンスがresponseへ格納 */
-      /* レスポンスが正常かどうかをチェック */
-      if (!_response.ok) {
-        throw new Error('Network response was not ok'); /* ダメならエラーを投げる */
-      }
-      return _response.text(); /* レスポンスをテキストとして取得 */
-    })
-    .then(_html => { /* 取得したテキストデータを_htmlに格納 */
-      // ファイルの内容を指定された要素に挿入
-      const _contents = document.querySelector("#" + _id); /* 挿入する場所を探す */
-      _contents.insertAdjacentHTML("afterbegin", _html); /* 一番最初に挿入 */
-      const _loader = document.querySelector('.loader');/* loaderを探してくる */
-      if(_loader){
-        console.log('良いね！')
-      }
-      console.log(_loader);
-      MathJax.typesetPromise(); // MathJaxを再処理
-    })
-    .catch(_error => { /* もしエラーがあるならerrorに格納 */
-      console.error('There has been a problem with your fetch operation:', _error); /* エラーの内容をconsoleへ出力 */
-    });
-};
-
 
 /* どのページにも必要なファイルを挿入 */
-includer("head.html","head").then(()=>{
+includer("head.html","head","include/").then(()=>{
   /* flag1 = true; */
   console.log('flag1完了')
 }) /* head */
-includer("footer.html","footer").then(()=>{
+includer("footer.html","footer","include/").then(()=>{
   /* flag2 = true; */
   console.log('flag2完了')
 }) /* フッター */
-includerll("loader.html","cover").then(()=>{
+includer("loader.html","cover","include/").then(()=>{
   /* flag3 = true; */
   console.log('flag3完了')
 }) /* loading画面 */
 
 
 /* ナビゲーションバーに関しての操作 */
-const includerNav = (_fileName, _id) => {
+const includerNav = (_fileName, _id, _folderName) => {
   /* fetch APIを使用してファイルを非同期で取得 */
-  fetch("include/" + _fileName) /*ファイルパスからファイルを取得  */
+  fetch(_folderName + _fileName) /*ファイルパスからファイルを取得  */
     .then(_response => { /* レスポンスがresponseへ格納 */
       /* レスポンスが正常かどうかをチェック */
       if (!_response.ok) {
@@ -112,7 +85,7 @@ const includerNav = (_fileName, _id) => {
     });
 };
 
-includerNav("nav-content.html","nav"); /* ナビゲーションバーを操作と一緒に挿入 */
+includerNav("nav-content.html","nav","include/"); /* ナビゲーションバーを操作と一緒に挿入 */
 
 
 /* 画面の大きさに応じてサイドバーを消す操作 */
@@ -135,10 +108,10 @@ window.addEventListener("resize", checkViewportSize);
 
 
 /* サイドバーに関しての操作 */
-async function includerSide (_file_name, _id)  {
+async function includerSide (_file_name, _id, _folderName)  {
   const _apiURL = 'https://script.google.com/macros/s/AKfycbwr2_yBunIZqw2theL2eHCCs65-DvJ3QmNEoT0na5gHALdjlq3JE_RuC2ZLlVulLTqlTg/exec';  /* GoogleスプレッドシートのAPIキー */
   // fetch APIを使用してファイルを非同期で取得
-  fetch("include/" + _file_name) /*ファイルパスからファイルを取得  */
+  fetch(_folderName + _file_name) /*ファイルパスからファイルを取得  */
     .then(response => { /* レスポンスがresponseへ格納 */
     /* レスポンスが正常かどうかをチェック */
       if (!response.ok) {
@@ -166,17 +139,17 @@ async function includerSide (_file_name, _id)  {
         throw new Error('Network response was not ok'); /* エラーなら投げる */
       }
       const _data = await _response.json(); /* データをjson形式に変更 */
-      const _spreadsheets = _contents.querySelector('.spreadsheets'); /* 挿入する部分を探す */
-      const _baseHtml = _contents.querySelector('.spreadsheets--item'); /*これから作るbaseの要素を取得  */
+      const __latestList = _contents.querySelector('.latest-list'); /* 挿入する部分を探す */
+      const _baseHtml = _contents.querySelector('.latest-item'); /*これから作るbaseの要素を取得  */
 
       // スプレッドシートのデータをDOMに追加
       for (let i = 0; i <= 3; i++) { /* 最新記事を4つ表示 */
         const _entry = _data[i]; /* スプレットシートのi番目のデータを取得 */
         const _copy = _baseHtml.cloneNode(true); /* baseの要素をコピー */
-        _copy.querySelector('.spreadsheets--name').textContent = 'タイトル：' + _entry.title; /* タイトルを挿入 */
-        _copy.querySelector('.link').href = _entry.link; /* linkを挿入 */
-        _copy.querySelector('.spreadsheets--img').src = _entry.image; /* イメージ画像を挿入 */
-        _spreadsheets.appendChild(_copy); /* 作ったものを挿入 */
+        _copy.querySelector('.latest-item-title').textContent = 'タイトル：' + _entry.title; /* タイトルを挿入 */
+        _copy.querySelector('.latest-link').href = _entry.link; /* linkを挿入 */
+        _copy.querySelector('.latest-img').src = _entry.image; /* イメージ画像を挿入 */
+        __latestList.appendChild(_copy); /* 作ったものを挿入 */
       }
 
       /* baseHtml要素を削除 */
@@ -223,7 +196,7 @@ async function includerSide (_file_name, _id)  {
   }
 };
 
-includerSide("side.html","side").then(()=>{
+includerSide("side.html","side","include/").then(()=>{
   console.log('終わり')
 }
 );
@@ -254,7 +227,7 @@ async function monitorContent() {
   while (true) {
     const _loader = document.querySelector('.loader');/* loaderを探してくる */
     const _navContent = document.querySelector('.nav-category');
-    const _sideContent = document.querySelector('.spreadsheets');
+    const _sideContent = document.querySelector('.latest-list');
     if(_navContent){
       flag1 = true
     };

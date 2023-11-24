@@ -1,49 +1,49 @@
-<div class="search limegreen">
+<div class="search">
     <input type="text" id="wordInput" placeholder="単語を入力してください">
-    <button id="getWordButton" type="submit">検索</i></button>
+    <button id="getWordButton" type="submit">検索</button>
 </div>
 
-<div class="latest-article">
+<div class="latest-title">
     <span>最新記事</span>
 </div>
-<div class="spreadsheets" id="spreadsheets">
-    <div class="spreadsheets--item">
-        <a href="" class="link">
-            <img src="loading.png" alt="" loading="lazy" class="spreadsheets--img">
-            <p class="spreadsheets--name">・・・・・・</p>
+<div class="latest-list">
+    <div class="latest-item">
+        <a href="" class="latest-link">
+            <img src="loading.png" alt="" class="latest-img">
+            <p class="latest-item-title">・・・・・・</p>
         </a>
     </div>
 </div>
-<div class="category-title">
+<div class="side-category-title">
     <span>カテゴリー</span>
 </div>
-<table class="category-table">
-    <tr class="list-link" onclick="window.location.href='#'">
+<table class="side-category-table">
+    <tr class="side-category-link">
         <th>
             数学
         </th>
     </tr>
-    <tr class="list-link" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'set');sessionStorage.setItem('now', 1);">
+    <tr class="side-category-link" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'set');sessionStorage.setItem('now', 1);">
         <td>
             集合と位相
         </td>
     </tr>
-    <tr class="list-link" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'lebesgue');sessionStorage.setItem('now', 1);">
+    <tr class="side-category-link" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'lebesgue');sessionStorage.setItem('now', 1);">
         <td>
             ルベーグ積分
         </td>
     </tr>
-    <tr class="list-link" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'prob');sessionStorage.setItem('now', 1);">
+    <tr class="side-category-link" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'prob');sessionStorage.setItem('now', 1);">
         <td>
             確率論
         </td>
     </tr>
-    <tr class="list-link" onclick="window.location.href='#'">
+    <tr class="side-category-link">
         <th>
             物理
         </th>
     </tr>
-    <tr class="list-link" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'quantum');sessionStorage.setItem('now', 1);">
+    <tr class="side-category-link" onclick="window.location.href='category.html';sessionStorage.setItem('category', 'quantum');sessionStorage.setItem('now', 1);">
         <td>
             量子力学
         </td>

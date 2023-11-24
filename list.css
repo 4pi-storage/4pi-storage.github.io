@@ -1,0 +1,97 @@
+.article-list-wrap{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.article-list {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: solid 3px #70a96a;
+    margin-bottom: 30vh;
+}
+
+.article-list tr:nth-child(n) {
+    background: #ffffff;
+}
+
+.article-list tr:nth-child(n):hover,
+.article-list th:hover {
+    background-color: #e5fce3a0;
+}
+
+.article-list td {
+    padding: 10px;
+    border-bottom: solid 3px #70a96a;
+}
+
+.article-list-item {
+    cursor: pointer;
+    position: relative;
+}
+
+.article-list-item img {
+    width: 20vw;
+    height: 20vw;
+}
+
+.arli-item-update-wrap span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-top: 20vh;
+}
+
+.pagenation{
+    position: absolute;/* ←親要素つまり、footerFiexedの中での絶対位置 */
+    bottom: 0;/* ←一番下に固定*/
+    display: flex;/* ←子要素の位置を自由にした。*/
+    align-items: center;/* ←子要素の位置を縦方向で真ん中にした。*/
+    justify-content: space-between;/* ←子要素の位置を横方向で真ん中にした。*/
+    height: 10vh; /* ←高さを指定*/
+    width: 100%;/* ←横幅を指定*/
+    /* margin-right: 100px; */ /* 左右のマージンを自動に設定して中央揃えにします */
+    width: 80%; /* または他の固定幅 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pagenation button{
+    background-color: #e5fce3a0;
+    border: 2px solid #547e4f;
+}
+
+.pagenation button:focus{
+    border: 2px solid black; /* 緑色の境界線 */
+}
+
+.category-list {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: solid 1px #778ca3;
+    margin-bottom: 5vh;
+}
+
+.category-list tr:nth-child(n) {
+    background: #ffffff;
+    border-bottom: solid 1px #778ca3;
+}
+
+.category-list tr:nth-child(n):hover,
+.category-list th:hover {
+    background-color: #e5fce3a0;
+}
+
+.category-list td {
+    padding: 10px;
+}
+
+
+.category-list th {
+    padding: 10px;
+}
