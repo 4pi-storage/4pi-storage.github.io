@@ -1,0 +1,50 @@
+<div class="title">
+    <h1>
+        py-scriptを使ってみた。
+    </h1>
+</div>
+<p>
+    html内でPythonが動かせるコードを使ってみました。
+</p>
+<div class="toc-article">
+    <div>
+    目次
+    </div>
+    <ol>
+    <li>
+        <a href="article-blog-1.html">外部モジュールなしで使ってみる</a>
+    </li>
+    <li>
+        <a href="article-blog-1.html">numpyを使ってみる。</a>
+    </li>
+    </ol>
+</div>
+<h2 id="h21">外部モジュールなしで使ってみる</h2>
+<p>helloと出力してみます。</p>
+<py-script>
+    print('hello')
+</py-script>
+<p>ここまでです。</p>
+<h2 id="h22">numpy,sympyを使ってみる。</h2>
+<p>
+    最初に、[2,3,6,7]の中で最大値を出力してみます。<br>
+    次に、\(\displaystyle \sin \left(\frac{\pi}{3}\right)\)の値を少数と\(\sqrt{}\)を含む形で出力してみます。
+</p>
+<py-script>
+    import numpy as np
+    a = [2, 4, 6, 3, 7]
+    
+    max_val = np.max(a)
+    print('最大値は',max_val)
+    from sympy import symbols, sin, pi, init_printing
+
+    # sin(π/3) の計算
+    result = sin(pi/3)
+
+    # 結果の表示
+    print('少数で表すと',np.sin(np.pi/3))
+    print('ルートを含むと',result)
+
+
+</py-script>
+<p>以上です。</p>
