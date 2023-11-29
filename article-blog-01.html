@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html class="no-js" lang="ja"><!--jsが無くても動くようにno-jsがある。日本語を指定したからjaがある-->
 <head id="head">
-    <link rel="stylesheet" href="article.css">
+    <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
+    <link rel="stylesheet" href="./css/article.css">
+<py-env>
+    - numpy
+    - sympy
+</py-env>
 </head>
 <body>
     <!-- ここからがローディング画面です。 -->
@@ -36,7 +41,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./Js/basis.js"></script>
-    <script>includer("article-set01-content.html","main-content","include/");</script>
+    <script>includer("01.html","main-content","article/blog/");</script>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
 </html>
