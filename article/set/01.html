@@ -16,17 +16,16 @@
     </div>
     <ol>
     <li>
-        <a href="ariticle.html#h21">集合とは？</a>
+        <a href="article-set-01.html#h21">集合とは？</a>
     </li>
     <li>
-        <a href="ariticle.html#h22">集合の記法</a>
-        <ol>
-        <li><a href="ariticle.html#h31">集合の演算</a></li>
-        <li><a href="ariticle.html#h32">巾集合</a></li>
-        </ol>
+        <a href="article-set-01.html#h22">記法について(外延的、内包的)</a>
+    </li>
+    <li>
+        <a href="article-set-01.html#h23">集合の演算</a>
     </li>
     </ol>
-    </div>
+</div>
 <h2 id="h21">集合とは？</h2>
 <p>"モノ"のあつまりのこと<br>\(x\)が\(X\)を構成する” モノ” のひとつのき、\(x\)は\(X\)の元(または、要素)
     といい$$x\in X$$と書く。<br>また、\(x\)が\(X\)の元でないとき\(x\notin X\)と書く。<br>
@@ -58,10 +57,105 @@
 \mathbb{N}=\{n \mid n\text{は自然数} \}=\{1,2,3,\cdots \}
 \end{gather*}
 <p>\(\{x \mid 0 &lt x &lt 1\}\) は外延的記法では書けない。</p>
-<h3 id="h31">集合の演算</h3>
+<h2 id="h23">集合の演算</h2>
 <p>\(X,Y\)を集合とする。このとき、</p>
-<div class="testimg1">
-    <img src="./include/home.jpg" alt="aaaa" class="testimg" width="10%" height="10%">
-    <p>\(x\in X\)</p>
+<div class="def">
+    <div class="def-header">
+        \((\text{i})\quad X\subset Y\)
+    </div>
+    <div class="def-body">
+        <p>
+            \(^{\forall}x\in X\Rightarrow x\in Y\)が成立。<br>
+            このとき、''\(X\)は\(Y\)に含まれる''という。(または、\(X\)は\(Y\)の部分集合)
+        </p>
+    </div>
 </div>
-<h3 id="h32">巾集合</h3>
+<div class="testimg1">
+    <img src="./image/set/set01-1.png" alt="aaaa" class="testimg" width="10%" height="10%">
+    <p>\(X\subset Y\)のイメージ</p>
+</div>
+<div class="def">
+    <div class="def-header">
+        \((\text{ii})\quad X\not\subset Y \)
+    </div>
+    <div class="def-body">
+        <p>
+            \( X\not\subset Y \quad \Leftrightarrow \quad \exists x_{0} \in X \quad s.t. \quad x_{0} \notin Y \)
+        </p>
+    </div>
+</div>
+<div class="testimg1">
+    <img src="./image/set/set01-2.png" alt="aaaa" class="testimg" width="10%" height="10%">
+    <p>\(X\not\subset Y \)のイメージ</p>
+</div>
+<div class="def">
+    <div class="def-header">
+        \((\text{iii})\quad X = Y \)
+    </div>
+    <div class="def-body">
+        <p>
+            \( X \subset Y \) かつ \( X \supset Y \) このとき \( X \) と \( Y \) は同じ。
+        </p>
+    </div>
+</div>
+<div class="def">
+    <div class="def-header">
+        \( (\text{iv}) \quad X \subsetneqq Y \)
+    </div>
+    <div class="def-body">
+        <p>
+            \( X \subset Y \) かつ \( X \neq Y \quad \Leftrightarrow \)<br>
+            \( X \subset Y \) かつ \( Y \not\subset X \) のとき \( X \) は \( Y \) の真部分集合という。\( X \subsetneqq Y \quad \Leftrightarrow  \) <br>
+            「\( \forall x \in X \Rightarrow x \in Y \)」かつ「\( \exists y_{0} \in Y \quad s.t. \quad y_{0} \notin X \)」
+        </p>
+    </div>
+</div>
+<div class="testimg1">
+    <img src="./image/set/set01-3.png" alt="aaaa" class="testimg" width="10%" height="10%">
+    <p>\(X \subsetneqq Y \)のイメージ</p>
+</div>
+真部分集合の例
+<div class="ex-box">
+    <p>例:<br>
+        \[ \mathbb{N} \subsetneqq \mathbb{Z} \subsetneqq \mathbb{Q} \subsetneqq \mathbb{R} \subsetneqq \mathbb{C} \]
+    </p>
+</div>
+<div class="prob-box">
+    <p>問:<br>
+        \[
+        \begin{gather*}
+        X = \{t \mid 0 \leq t &lt 1 \}\\
+        Y = \left\{\frac{s}{s+1} \mid s \geq 0 \right\}
+        \end{gather*}
+        \]
+        このとき、\( X = Y \) となる。
+    </p>
+</div>
+<p>
+    まず、\( X \subset Y \)を示す。\(t \in X \)
+    とすると、\( 0 \leq t &lt 1 \)このとき
+    <br>
+    \[
+    \begin{gather*}
+    s := \frac{t}{1 - t}
+    \end{gather*}
+    \]
+    <br>
+    とおくと、\( 0 \leq s \)で、
+    <br>
+    \[
+    \begin{gather*}
+    \frac{s}{s + 1} = t
+    \end{gather*}
+    \]
+    <br>
+    となるから、\( t \in Y\)
+    <br>
+    次に、\( Y \subset X \)を示す。\(t \in Y \)とすると、
+    <br>
+    \[
+    \exists s \geq 0 \quad s.t. \quad t = \frac{s}{s + 1} 
+    \]
+    <br>
+    このとき、\( 0 \leq t &lt 1\)となるから、\( t \in X\)
+</p>

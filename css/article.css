@@ -98,3 +98,34 @@
     height: 30vmin;
     border: 1px solid black;
 }
+
+.def {
+    border: 2px solid #70a96a; /* ヘッダーの背景色と同じ色で枠を設定 */
+    margin: 10px;
+}
+
+.def-header {
+    background-color: #70a96a; /* ヘッダーの背景色 */
+    color: white; /* ヘッダーのテキスト色 */
+    padding: 5px;
+    font-weight: bold;
+    margin-bottom: 0; /* ヘッダーと本文の間の隙間をなくす */
+}
+
+.def-body {
+    padding: 10px;
+    margin-top: 0; /* ヘッダーと本文の間の隙間をなくす */
+}
+
+.prob-box {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    background: #FFF;
+    border: solid 3px #7087a9;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.prob-box p {
+    margin: 0; 
+    padding: 0;
+}
