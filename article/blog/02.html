@@ -1,0 +1,92 @@
+<p><u>はじめに</u><br>
+    この記事は、私が
+    <a href="https://gihyo.jp/article/2023/04/monthly-python-2304" target="_blank" rel="noopener noreferrer">
+        WebブラウザでPythonが動作する!PyScriptの詳解
+    </a>
+    という記事を読ませて頂いて作成したhtmlのコードを実際に動かすために作成したものです。
+    コードのやり方などは元記事をご参照下さい。ただし、エラーが起きたときなどの責任は私にあります。
+</p>
+<p>
+    本記事はWebブラウザ上でPythonを動作させるPyScriptの実装についての紹介です。
+    元となる詳解記事の内容を踏まえ、ここではそのHTMLコードを実際に動かした結果をお見せします。
+</p>
+<div class="toc-article">
+    <div>
+    目次
+    </div>
+    <ol>
+    <li>
+        <a href="article-blog-02.html#h21">print()での簡単な出力</a>
+    </li>
+    <li>
+        <a href="article-blog-02.html#h22">display()での出力</a>
+        <ol>
+        <li>
+            <a href="article-blog-02.html#h231">
+                通常の出力
+            </a>
+        </li>
+        <li>
+            <a href="article-blog-02.html#h232">
+                指定した要素に出力
+            </a>
+        </li>
+        <li>
+            <a href="article-blog-02.html#h233">
+                改行を解消
+            </a>
+        </li>
+        </ol>
+    </li>
+    </ol>
+</div>
+<h2 id="h21">print()での簡単な出力</h2>
+<p>
+    Pythonのprint()関数を用いて本日の日付を出力します。
+    ただし、出力はページの一番下にされます。
+</p>
+<py-script>
+    from datetime import datetime
+    now = datetime.now()
+    print(f"今は{now:%Y年%m月%d日 %H:%M:%S}です。")
+</py-script>
+<h2 id="h22">display()での出力</h2>
+<h3 id="h231">通常の出力</h3>
+<p>
+    以下にdisplay()関数を用いて本日の日付を出力します。
+    出力もすぐ下にされます。
+</p>
+<py-script>
+    from datetime import datetime
+    now = datetime.now()
+    display(f"今は{now:%Y年%m月%d日 %H:%M:%S}です。")
+</py-script>
+<h3 id="h232">指定した要素に出力</h3>
+<py-script>
+    from datetime import datetime
+    now = datetime.now()
+    display(f"{now:%Y年%m月%d日 %H:%M:%S}", target="now")
+</py-script>
+<p>ここから</p>
+<ul>
+    <li>今は<b><span>現在日時</span></b>です。</li>
+</ul>
+<p>ここまでの要素を指定して出力した結果が以下です。</p>
+<ul>
+    <li>今は<b><span id="now">現在日時</span></b>です。</li>
+</ul>
+<h3 id="h233">改行を解消</h3>
+<py-script>
+    from datetime import datetime
+    now = datetime.now()
+    display(f"{now:%Y年%m月%d日 %H:%M:%S}", target="now1", append=False)
+</py-script>
+<ul>
+    <li>今は<b><span id="now1">現在日時</span></b>です。</li>
+</ul>
+<p>
+    <u>はじめに</u>
+    PyScriptを使うことで、HTML内にPythonコードを組み込み、ウェブページ上で直接動的な出力を生成することができます。
+    この記事を通じて、具体的な実装結果をご照会できたかと思います。
+    PythonとHTMLの強力な組み合わせを体験する良い出発点となったら幸いです。
+</p>
