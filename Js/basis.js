@@ -146,7 +146,7 @@ async function includerSide (_file_name, _id, _folderName)  {
       for (let i = 0; i <= 3; i++) { /* 最新記事を4つ表示 */
         const _entry = _data[i]; /* スプレットシートのi番目のデータを取得 */
         const _copy = _baseHtml.cloneNode(true); /* baseの要素をコピー */
-        _copy.querySelector('.latest-item-title').textContent = 'タイトル：' + _entry.title; /* タイトルを挿入 */
+        _copy.querySelector('.latest-item-title').textContent = _entry.title; /* タイトルを挿入 */
         _copy.querySelector('.latest-link').href = _entry.link; /* linkを挿入 */
         _copy.querySelector('.latest-img').src = _entry.image; /* イメージ画像を挿入 */
         __latestList.appendChild(_copy); /* 作ったものを挿入 */
