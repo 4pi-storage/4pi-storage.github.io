@@ -1,4 +1,9 @@
-const categoryList = {set:'集合と位相',lebesgue:'ルベーグ積分',prob:'確率論',quantum:'量子力学'};
+const categoryList = 
+{set:'集合と位相',
+lebesgue:'ルベーグ積分',
+prob:'確率論',
+quantum:'量子力学',
+others:'その他'};
 
 async function includerCategory (_fileName, _id, _folderName){
     try{
