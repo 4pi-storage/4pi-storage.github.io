@@ -1,0 +1,157 @@
+<p><u>はじめに</u><br>
+    この記事は、私がYouTubeチャンネル<a href="https://youtube.com/@niwaka-king" target="_blank" rel="noopener noreferrer">数の落とし子</a>にある
+    <a href="https://youtube.com/playlist?list=PLCEodJcXgyHwld8DjnfZQZiw0kV8p-6Py" target="_blank" rel="noopener noreferrer">集合と位相</a>
+    というシリーズを勉強したものになります。ただし、正誤については全責任が私にあります。以上ご確認下さい。
+</p>
+<div class="title">
+    <h1>命題とその演算について</h1>
+</div>
+<p>
+    命題について勉強して、それらの演算についてまとめました。全てに真理表があるので
+    理解の助けになれば幸いです。
+</p>
+<div class="toc-article">
+    <div>
+    目次
+    </div>
+    <ol>
+    <li>
+        <a href="article-set-02-1.html#h21">命題とは?</a>
+    </li>
+    <li>
+        <a href="article-set-02-1.html#h22">命題の演算</a>
+    </li>
+    </ol>
+</div>
+<h2 id="h21">命題とは?</h2>
+<p>
+    \(P\)が命題であるとは、「真か偽かが定まっている主張」であるということ。
+</p>
+<div class="ex-box">
+    <p>
+        「\(-5\)は負の数である。」という主張は命題であって真である。<br>
+        「\(1+3i\)は実数である。」という主張は命題であって偽である。<br>
+        「ハンバーグはおいしい。」という主張は命題でない。
+    </p>
+</div>
+<h2 id="h22">命題の演算</h2>
+<p>
+    \(P,Q\)を命題とする。
+</p>
+<div class="def">
+    <div class="def-header">
+        \(\text{否定命題}^{\neg}P \)
+    </div>
+    <div class="def-body">
+        <p>
+            \(P\)が真(偽)のとき\(^{\neg}P\)を偽(真)として定義する。
+        </p>
+    </div>
+</div>
+<p><u>真理表</u>,真\(\rightarrow 1\),偽\(\rightarrow 0\)</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <tr>
+            <th>\( P \)</th>
+            <th>\( ^{\neg} P \)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+
+<div class="def">
+    <div class="def-header">
+        \(\text{論理和}P\lor Q \)
+    </div>
+    <div class="def-body">
+        <p>
+            次の真理表で定義される命題\(P\lor Q\)を\(P,Q\)の論理和という。
+        </p>
+    </div>
+</div>
+
+<div class="truth-table-wrap">
+    <p>\(P \lor Q\) の真理表</p>
+    <table class="truth-table">
+        <tr>
+            <th>\(P\)</th>
+            <th>\(Q\)</th>
+            <th>\(P \lor Q\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
+</div>
+
+<div class="def">
+    <div class="def-header">
+        \(\text{論理積}P\land Q \)
+    </div>
+    <div class="def-body">
+        <p>
+            次の真理表で定義される命題\(P\land Q\)を\(P,Q\)の論理積という。
+        </p>
+    </div>
+</div>
+
+<div class="truth-table-wrap">
+    <p>\(P \land Q\) の真理表</p>
+    <table class="truth-table">
+        <tr>
+            <th>\(P\)</th>
+            <th>\(Q\)</th>
+            <th>\(P \land Q\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
+</div>
+
+<p>
+    <u>おわりに</u><br>
+    命題について理解出来て、それらの演算について勉強しました。
+    書くのは面倒ですが頑張って真理表を書いて行こうと思います。
+</p>

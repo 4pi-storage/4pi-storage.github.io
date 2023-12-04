@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ja"><!--jsが無くても動くようにno-jsがある。日本語を指定したからjaがある-->
+<head id="head">
+    <link rel="stylesheet" href="./css/article.css">
+</head>
+<body>
+    <!-- ここからがローディング画面です。 -->
+    <div id="cover" style="height: 100vh;
+    width: 100%;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;">
+    </div>
+    <!-- ここまでがローディング画面です。 -->
+    <div class="footerFixed" style="display: none;">
+        <header class="header"></header>
+        <!--ここからはナビゲーションバーです。-->
+        <nav class="navbar navbar-expand-md " id="nav"></nav>
+        <!--ここまでは、ナビゲーションバーです。-->
+        <!--ここからは、記事です。-->
+        <article class="article" id="article">
+            <!--ここからがメイン記事です。-->
+            <div class="container"id="main-content"></div>
+            <!--ここまでがメイン記事です。-->
+            <!--ここからサイドバーです。-->
+            <div class="side" id="side"></div> 
+            <!--ここまでがサイドバーです。-->
+        </article>
+        <!--ここからは、フッターです。-->
+        <footer id="footer" class="footer"></footer>
+        <!--ここまでは、フッターです。-->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./Js/basis.js"></script>
+    <script>includer("01-2.html","main-content","article/set/");</script>
+    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
