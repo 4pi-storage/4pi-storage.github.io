@@ -129,3 +129,31 @@
     margin: 0; 
     padding: 0;
 }
+
+.truth-table-wrap {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.truth-table {
+    width: 50%;
+    border-collapse: collapse;
+}
+
+.truth-table th{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.truth-table td{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.truth-table th {
+    background-color: #e5fce3a0;
+}
