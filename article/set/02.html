@@ -1,0 +1,72 @@
+<p><u>はじめに</u><br>
+    この記事は、私がYouTubeチャンネル<a href="https://youtube.com/@niwaka-king" target="_blank" rel="noopener noreferrer">数の落とし子</a>にある
+    <a href="https://youtube.com/playlist?list=PLCEodJcXgyHwld8DjnfZQZiw0kV8p-6Py" target="_blank" rel="noopener noreferrer">集合と位相</a>
+    というシリーズを勉強したものになります。ただし、正誤については全責任が私にあります。以上ご確認下さい。
+</p>
+<div class="title">
+    <h1>いくつかの集合</h1>
+</div>
+<p>
+    <a href="article-set-01.html" target="_blank" rel="noopener noreferrer">前回</a>
+    のつづきです。
+</p>
+<div class="toc-article">
+    <div>
+    目次
+    </div>
+    <ol>
+    <li>
+        <a href="article-set-02.html#h21">区間</a>
+    </li>
+    <li>
+        <a href="article-set-02.html#h22">巾集合</a>
+    </li>
+    </ol>
+</div>
+<h2 id="h21">区間</h2>
+\(a&lt;b\quad (a,b\in\mathbb{R})\)に対し、
+<div class="ex-box" style="justify-content: center;display: flex;align-items: center;">
+    <p>
+        \( (a,b):=\{x\in \mathbb{R} \mid a &lt; x &lt;b \} \)<br>
+        \( (a,b]:=\{x\in \mathbb{R} \mid a &lt; x \leq b \} \)<br>
+        \( [a,b):=\{x\in \mathbb{R} \mid a \leq x &lt; b \} \)<br>
+        \( [a,b]:=\{x\in \mathbb{R} \mid a \leq x \leq b \} \)<br>
+        \( [a,a]:=\{x\in \mathbb{R} \mid x= a \} \)<br>
+        \( (a,\infty):=\{x\in \mathbb{R} \mid a &lt; x  \} \)<br>
+        \( [a,\infty):=\{x\in \mathbb{R} \mid a \leq x  \} \)<br>
+        \( (-\infty,b):=\{x\in \mathbb{R} \mid x&lt;b  \} \)<br>
+        \( (-\infty,b]:=\{x\in \mathbb{R} \mid x\leq b  \} \)<br>
+    </p>
+</div>
+となって、
+<div class="ex-box" style="justify-content: center;display: flex;align-items: center;">
+    <p>
+        \( (a,b)\quad (a,\infty)\quad (-\infty,b)\quad\text{開区間} \)<br>
+        \( [a,b]\quad [a,\infty]\quad [-\infty,b]\quad\text{閉区間} \)<br>
+        \( (a,b]\quad [a,\infty)\quad [-\infty,b)\quad\text{半開区間} \)<br>
+    </p>
+</div>
+<p>
+    と呼ばれる。
+</p>
+<h2 id="h22">巾集合</h2>
+<p>
+    Xを集合とする。<br>
+    Xの全ての部分集合からなる集合を''巾集合''といい\(2^{X}\)と表す。記号の意味を考えてみる。
+    そのために、\(X=\{1,2,3\}\)を考える。このとき
+</p>
+<div class="testimg1">
+    <img src="./image/set/set01-4.png" alt="aaaa" class="testimg" width="10%" height="10%">
+    <p>\(2^{X}\)のイメージ</p>
+</div>
+<p>
+    このように、\(1,2,3\)を箱に入れるか入れないかを考えて例えば、
+    \(1,2\)を入れて\(3\)を入れないと\(\{1,2\}\)という集合になる。
+    よって、\(2^{3}\)個だけあるので巾集合は\(2^{X}\)と書くと考えると良い。実際
+</p>
+<div class="ex-box">
+    <p>
+        \(X=\{1,2,3\}\)のとき、
+        \(2^{X}=\{\phi ,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}\) となる。
+    </p>
+</div>
