@@ -1,0 +1,135 @@
+<p><u>はじめに</u><br>
+    この記事は、私がYouTubeチャンネル<a href="https://youtube.com/@niwaka-king" target="_blank" rel="noopener noreferrer">数の落とし子</a>にある
+    <a href="https://youtube.com/playlist?list=PLCEodJcXgyHwld8DjnfZQZiw0kV8p-6Py" target="_blank" rel="noopener noreferrer">集合と位相</a>
+    というシリーズを勉強したものになります。ただし、正誤については全責任が私にあります。以上ご確認下さい。
+</p>
+<div class="title">
+    <h1>論理式の例、含意、同値</h1>
+</div>
+<p>
+    <a href="article-set-02-1.html">前回</a>のつづきで論理式というものが何かを確認してその例をいくつか見る。
+</p>
+<div class="toc-article">
+    <div>
+    目次
+    </div>
+    <ol>
+    <li>
+        <a href="article-set-02-1.html#h21">含意</a>
+    </li>
+    <li>
+        <a href="article-set-02-1.html#h22">同値</a>
+    </li>
+    </ol>
+</div>
+<p>
+    \(P,Q\)を命題とする。
+</p>
+<h2 id="h21">含意</h2>
+複数の命題に対してそれらの否定、論理和、論理積、をとる操作を繰り返して得られる命題を''論理式''という。
+<div class="def">
+    <div class="def-header">
+        \(\text{含意}P\Rightarrow Q \)
+    </div>
+    <div class="def-body">
+        <p>
+            論理式\((^{\neg}P)\lor Q\)を含意といい\(P\Rightarrow Q\)と書く。
+            (\(P\)ならば\(Q\)という。)
+        </p>
+    </div>
+</div>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\((^{\neg}P)\lor Q\)の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(Q\)</th>
+            <th>\(^{\neg}P\)</th>
+            <th>\((^{\neg}P)\lor Q\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>
+    <u>含意の気持ち</u><br>
+    \(P\)でないときはいつでも真にしよう。ということで、
+    \(P\)であって\(Q\)でないときは偽としよう。ということ
+</p>
+<div class="def">
+    <div class="def-header">
+        \(\text{同値}P\Leftrightarrow Q \)
+    </div>
+    <div class="def-body">
+        <p>
+            \((P\Rightarrow Q)\land(Q\Rightarrow P)\)を'同値'といい
+            \(P\Leftrightarrow Q\)と書く。
+        </p>
+    </div>
+</div>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\((P\Rightarrow Q)\land(Q\Rightarrow P)\)の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(Q\)</th>
+            <th>\(P\Rightarrow Q\)</th>
+            <th>\(Q\Rightarrow P\)</th>
+            <th>\((P\Rightarrow Q)\land(Q\Rightarrow P)\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>
+    <u>おわりに</u><br>
+    論理式について基本的な2つを確認することが出来た。今回は短い。
+</p>
