@@ -1,0 +1,412 @@
+<p><u>はじめに</u><br>
+    この記事は、私がYouTubeチャンネル<a href="https://youtube.com/@niwaka-king" target="_blank" rel="noopener noreferrer">数の落とし子</a>にある
+    <a href="https://youtube.com/playlist?list=PLCEodJcXgyHwld8DjnfZQZiw0kV8p-6Py" target="_blank" rel="noopener noreferrer">集合と位相</a>
+    というシリーズを勉強したものになります。ただし、正誤については全責任が私にあります。以上ご確認下さい。
+</p>
+<div class="title">
+    <h1>論理式、いくつかの定理1</h1>
+</div>
+<p>
+    <a href="article-set-02-2.html">前回</a>のつづきで論理式の定理について順に確認していく。
+</p>
+<div class="toc-article">
+    <div>
+    目次
+    </div>
+    <ol>
+    <li>
+        <a href="article-set-02-3.html#h21">補題1</a>
+    </li>
+    <li>
+        <a href="article-set-02-3.html#h22">補題2</a>
+    </li>
+    </ol>
+</div>
+<p>
+    \(P,Q\)を命題とする。
+</p>
+<h2 id="h21">補題1</h2>
+<div class="def">
+    <div class="def-header">
+        補題1
+    </div>
+    <div class="def-body">
+        <ul>
+            <li>
+                \(P\Rightarrow (P\lor Q)\)
+            </li>
+            <li>
+                \(Q\Rightarrow (P\lor Q)\)
+            </li>
+            <li>
+                \((P\land Q)\Rightarrow P\)
+            </li>
+            <li>
+                \((P\land Q)\Rightarrow Q\)
+            </li>
+        </ul>
+    </div>
+</div>
+<p>
+    では、順に証明していく。まずは、\(P\Rightarrow (P\lor Q)\)の証明である。
+</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\(P\Rightarrow (P\lor Q)\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(Q\)</th>
+            <th>\(P\lor Q\)</th>
+            <th>\(P\Rightarrow (P\lor Q)\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>次に、\(Q\Rightarrow (P\lor Q)\)の証明である。</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\(Q\Rightarrow (P\lor Q)\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(Q\)</th>
+            <th>\(P\lor Q\)</th>
+            <th>\(Q\Rightarrow (P\lor Q)\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>同様に、\((P\land Q)\Rightarrow P\)の証明である。</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\((P\land Q)\Rightarrow P\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(Q\)</th>
+            <th>\(P\land Q\)</th>
+            <th>\((P\land Q)\Rightarrow P\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>最後に、\((P\land Q)\Rightarrow Q\)の証明である。</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\((P\land Q)\Rightarrow Q\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(Q\)</th>
+            <th>\(P\land Q\)</th>
+            <th>\((P\land Q)\Rightarrow Q\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<h2 id="h22">補題2</h2>
+<div class="def">
+    <div class="def-header">
+        補題2
+    </div>
+    <div class="def-body">
+        <ul>
+            <li>\((^{\neg}(^{\neg}P))\Leftrightarrow P\)</li>
+            <li>\(P\lor P\Leftrightarrow P\)</li>
+            <li>\(P\land P\Leftrightarrow P\)</li>
+            <li>\((P\lor Q)\Leftrightarrow (Q\lor P)\)</li>
+            <li>\((P\land Q)\Leftrightarrow (Q\land P)\)</li>
+            <li>\(((P\lor Q)\lor R)\Leftrightarrow (P\lor (Q\lor R))\)</li>
+            <li>\(((P\land Q)\land R)\Leftrightarrow (P\land (Q\land R))\)</li>
+            <li>\((P\lor (Q\land R))\Leftrightarrow ((P\lor Q)\land(P\lor R))\)</li>
+            <li>\((P\land (Q\lor R))\Leftrightarrow ((P\land Q)\lor(P\land R))\)</li>
+            <li>\((^{\neg}(P\lor Q))\Leftrightarrow ((^{\neg}P)\land(^{\neg}Q))\) (ド・モルガンの法則)</li>
+            <li>\((^{\neg}(P\land Q))\Leftrightarrow ((^{\neg}P)\lor(^{\neg}Q))\) (ド・モルガンの法則)</li>
+            <li>\((P\Rightarrow Q)\Leftrightarrow (^{\neg}Q\Rightarrow P)\) (対偶命題)</li>
+            <li>\((P\Rightarrow R)\land (Q\Rightarrow R)\Leftrightarrow (P\lor Q)\Rightarrow R\)</li>
+            <li>\((R\Rightarrow P)\land (R\Rightarrow Q)\Leftrightarrow (R\Rightarrow (P\land Q))\)</li>
+        </ul>
+    </div>
+</div>
+<p>
+    順に示していく。
+    最初に、\((^{\neg}(^{\neg}P))\Leftrightarrow P\)について\((^{\neg}(^{\neg}P))\Rightarrow P\)を示す。
+</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\((^{\neg}(^{\neg}P))\Rightarrow P\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(^{\neg}P\)</th>
+            <th>\(^{\neg}(^{\neg}P)\)</th>
+            <th>\((^{\neg}(^{\neg}P))\Rightarrow P\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>次に、\((^{\neg}(^{\neg}P))\Leftarrow P\)を示す。</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\((^{\neg}(^{\neg}P))\Leftarrow P\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\((^{\neg}(^{\neg}P))\Leftarrow P\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>同様に、\(P\lor P\Leftrightarrow P\)について、\(P\lor P\Rightarrow P\)をまず示す。</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\(P\lor P\Rightarrow P\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(P\lor P\)</th>
+            <th>\(P\lor P\Leftrightarrow P\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>次に、\(P\lor P\Leftarrow P\)を示す。</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\(P\lor P\Leftarrow P\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(P\lor P\Leftarrow P\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>同様に、\(P\land P\Leftrightarrow P\)について、\(P\land P\Rightarrow P\)をまず示す。</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\(P\land P\Rightarrow P\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(P\land P\)</th>
+            <th>\(P\land P\Rightarrow P\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>次に、\(P\land P\Leftarrow P\)を示す。</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <caption>\(P\land P\Leftarrow P\) の真理表</caption>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(P\land P\Leftarrow P\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>同様に、\((P\lor Q)\Leftrightarrow (Q\lor P)\)について、\((P\lor Q)\Rightarrow (Q\lor P)\)を示す。</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\((P\lor Q)\Rightarrow (Q\lor P)\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(Q\)</th>
+            <th>\(P\lor Q\)</th>
+            <th>\((P\lor Q)\Rightarrow (Q\lor P)\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p>次に、\((P\lor Q)\Leftarrow (Q\lor P)\)を示す。</p>
+<div class="truth-table-wrap">
+    <table class="truth-table">
+        <p>\((P\lor Q)\Leftarrow (Q\lor P)\) の真理表</p>
+        <tr>
+            <th>\(P\)</th>
+            <th>\(Q\)</th>
+            <th>\((P\lor Q)\Leftarrow (Q\lor P)\)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+</div>
+<p><u>おわりに</u><br>
+    今回は、論理式について基本的な内容に全て証明を付けた。地味だが、全てに真理表を書きたい。
+</p>
