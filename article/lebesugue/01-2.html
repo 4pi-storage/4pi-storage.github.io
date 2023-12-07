@@ -1,0 +1,74 @@
+<p><u>はじめに</u><br>
+    この記事は、私が
+    <a href="http://www.rokakuho.co.jp/data/books/0070.html" target="_blank" rel="noopener noreferrer">ルベーグ積分論</a>
+    を勉強した内容になります。ただし、正誤については全責任が私にあります。以上ご確認下さい。
+</p>
+<div class="title">
+    <h1>ルベーグ積分01-2:完全加法族の定義(つづき)</h1>
+</div>
+<p>
+    <a href="article-lebesugue-01-1.html">前回</a>は
+    完全加法族の定義について学びそこから導かれる性質についていくつか確認しました。
+    今回は、残っているものについて確認します。
+</p>
+<div class="toc-article">
+    <div>
+    目次
+    </div>
+    <ol>
+    <li>
+        <a href="article-lebesugue-01-2.html#h21">導かれる性質</a>
+    </li>
+    </ol>
+</div>
+<h2 id="h21">導かれる性質</h2>
+<p>
+    <a href="article-lebesugue-01-1.html">前回</a>
+    の完全加法族の定義の再掲
+</p>
+<div class="def">
+    <div class="def-header">
+        完全加法族の定義
+    </div>
+    <div class="def-body">
+        <p>
+            \(X\)を集合とする。\(\mathscr{S}\)を\(X\)の巾集合の部分集合系とする。
+            \((\mathscr{S}\subset 2^{X})\)このとき、
+            \(\mathscr{S}\)が完全加法族\((\sigma -algebra)\)であるとは、次の2つの性質を満たすときである。
+            <ol>
+                <li>
+                    \(E\in \mathscr{S}\Rightarrow E^{\complement}\in \mathscr{S}\)
+                </li>
+                <li>
+                    \(\{E_{j}\}^{\infty}_{j=1}\subset \mathscr{S},\bigcup _{j=1}^{\infty}E_{j}\in \mathscr{S}\)
+                </li>
+            </ol>
+        </p>
+    </div>
+</div>
+<p>では、順に示してく。最初は\(E,F\in \mathscr{S}\Rightarrow E-F\in\mathscr{S}\)を示す。</p>
+<p><u>証明</u><br></p>
+<p>
+    \(E,F\in\mathscr{S}\)であるから定義より補集合を取る操作に閉じているから
+    \[F^{\complement}\in\mathscr{S}\]
+    また、既に
+    <a href="article-lebesugue-01-1.html">前回</a>
+    確認したように有限の共通部分についても閉じているから
+    \[E-F=E\cap F^{\complement}\in\mathscr{S} \]
+    となって示された。
+</p>
+<div class="proof-end">
+    <span>□</span>
+</div>
+<p>最後に、\(\phi,X\in\mathscr{S}\)であることを示す。</p>
+<p><u>証明</u><br></p>
+<p>
+    \(E\in\mathscr{S}\)とする。差集合について閉じているから
+    \[\phi =E-E\in\mathscr{S}\]
+    また、定義から補集合を取る操作について閉じているから
+    \[X=\phi^{\complement}\in\mathscr{S}\]
+    となって示された。
+</p>
+<div class="proof-end">
+    <span>□</span>
+</div>
