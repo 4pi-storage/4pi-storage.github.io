@@ -157,3 +157,9 @@
 .truth-table th {
     background-color: #e5fce3a0;
 }
+
+.proof-end{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
