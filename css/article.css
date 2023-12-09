@@ -80,6 +80,7 @@
     background: #FFF;
     border: solid 3px #70a96a;/*線*/
     border-radius: 10px;/*角の丸み*/
+    overflow-x: auto; /* 横スクロールを可能にする */
 }
 .ex-box p {
     margin: 0; 
@@ -115,6 +116,7 @@
 .def-body {
     padding: 10px;
     margin-top: 0; /* ヘッダーと本文の間の隙間をなくす */
+    overflow-x: auto; /* 横スクロールを可能にする */
 }
 
 .prob-box {
@@ -124,6 +126,7 @@
     background: #FFF;
     border: solid 3px #7087a9;/*線*/
     border-radius: 10px;/*角の丸み*/
+    overflow-x: auto; /* 横スクロールを可能にする */
 }
 .prob-box p {
     margin: 0; 
@@ -135,6 +138,9 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    overflow-x: auto; /* 横スクロールを可能にする */
+    margin-bottom: 10vmin;
+    justify-content: center;
 }
 
 .truth-table {
@@ -162,4 +168,32 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
+}
+
+@media (max-width: 800px) { /* 画面幅が800px以下の場合 */
+    .truth-table-wrap {
+        display: block; 
+        text-align: center;
+    }
+
+    .truth-table{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body{
+        font-size: 0.8em;
+    }
+
+    
+}
+
+@media (max-width: 426px) { /* 画面幅が800px以下の場合 */
+    .title h1{
+        font-size: 1.4em;
+    }
+
+    h2{
+        font-size: 1.2em;
+    }
 }
