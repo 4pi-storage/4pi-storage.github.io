@@ -2,6 +2,7 @@ const categoryList =
 {set:'集合と位相',
 lebesgue:'ルベーグ積分',
 prob:'確率論',
+bayesian:'ベイズ統計',
 quantum:'量子力学',
 others:'その他'};
 
